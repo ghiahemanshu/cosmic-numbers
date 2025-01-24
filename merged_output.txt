@@ -1,0 +1,360 @@
+#Merged code input to AI.
+Project Context: This is a React/TypeScript project using Vite, shadcn-ui, and Tailwind CSS.
+
+
+### Project Structure
+heman@heman-mac cosmic-numbers % tree -I "node_modules"
+.
+├── README.md
+├── bun.lockb
+├── components.json
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── favicon.ico
+│   ├── lovable-uploads
+│   │   └── 123da26c-19a6-43db-9ada-ecbc63170eb7.png
+│   ├── og-image.png
+│   └── placeholder.svg
+├── src
+│   ├── App.css
+│   ├── App.tsx
+│   ├── components
+│   │   ├── Hero.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Services.tsx
+│   │   └── ui
+│   │       ├── accordion.tsx
+│   │       ├── alert-dialog.tsx
+│   │       ├── alert.tsx
+│   │       ├── aspect-ratio.tsx
+│   │       ├── avatar.tsx
+│   │       ├── badge.tsx
+│   │       ├── breadcrumb.tsx
+│   │       ├── button.tsx
+│   │       ├── calendar.tsx
+│   │       ├── card.tsx
+│   │       ├── carousel.tsx
+│   │       ├── chart.tsx
+│   │       ├── checkbox.tsx
+│   │       ├── collapsible.tsx
+│   │       ├── command.tsx
+│   │       ├── context-menu.tsx
+│   │       ├── dialog.tsx
+│   │       ├── drawer.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       ├── form.tsx
+│   │       ├── hover-card.tsx
+│   │       ├── input-otp.tsx
+│   │       ├── input.tsx
+│   │       ├── label.tsx
+│   │       ├── menubar.tsx
+│   │       ├── navigation-menu.tsx
+│   │       ├── pagination.tsx
+│   │       ├── popover.tsx
+│   │       ├── progress.tsx
+│   │       ├── radio-group.tsx
+│   │       ├── resizable.tsx
+│   │       ├── scroll-area.tsx
+│   │       ├── select.tsx
+│   │       ├── separator.tsx
+│   │       ├── sheet.tsx
+│   │       ├── sidebar.tsx
+│   │       ├── skeleton.tsx
+│   │       ├── slider.tsx
+│   │       ├── sonner.tsx
+│   │       ├── switch.tsx
+│   │       ├── table.tsx
+│   │       ├── tabs.tsx
+│   │       ├── textarea.tsx
+│   │       ├── toast.tsx
+│   │       ├── toaster.tsx
+│   │       ├── toggle-group.tsx
+│   │       ├── toggle.tsx
+│   │       ├── tooltip.tsx
+│   │       └── use-toast.ts
+│   ├── hooks
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── index.css
+│   ├── lib
+│   │   └── utils.ts
+│   ├── main.tsx
+│   ├── pages
+│   │   └── Index.tsx
+│   └── vite-env.d.ts
+├── tailwind.config.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+9 directories, 78 files
+heman@heman-mac cosmic-numbers %
+
+==================================================
+
+
+==================================================
+Contents of src/App.tsx:
+==================================================
+
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
+
+
+==================================================
+Contents of src/pages/Index.tsx:
+==================================================
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-gradient-main">
+      <Navbar />
+      <Hero />
+      <Services />
+    </div>
+  );
+};
+
+export default Index;
+
+==================================================
+Contents of src/components/Hero.tsx:
+==================================================
+
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+
+const Hero = () => {
+  return (
+    <section id="home" className="min-h-screen flex items-center pt-20 bg-gradient-main">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Discover Your Path Through the Power of Numbers
+            </h1>
+            <p className="text-xl text-gray-600">
+              Unlock the secrets of your life's journey with our advanced numerology analysis. Get personalized insights that guide your path to self-discovery.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
+                Explore Services
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button variant="secondary" className="bg-secondary hover:bg-secondary/90 text-lg px-8 py-6">
+                Get Started
+              </Button>
+            </div>
+          </div>
+          <div className="hidden md:block">
+            <img 
+              src="/placeholder.svg" 
+              alt="Numerology Illustration" 
+              className="w-full max-w-lg mx-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
+
+==================================================
+Contents of src/components/Navbar.tsx:
+==================================================
+
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 py-4">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <img src="/lovable-uploads/123da26c-19a6-43db-9ada-ecbc63170eb7.png" alt="Soul Digits Logo" className="h-16" />
+            <span className="text-3xl font-bold text-primary">Soul Digits</span>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#home" className="text-gray-700 hover:text-primary">Home</a>
+            <a href="#about" className="text-gray-700 hover:text-primary">About</a>
+            <a href="#services" className="text-gray-700 hover:text-primary">Services</a>
+            <Button className="bg-primary hover:bg-primary/90">
+              Contact Us
+            </Button>
+          </div>
+
+          {/* Mobile Navigation Button */}
+          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        {isOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg">
+            <div className="flex flex-col space-y-4 p-4">
+              <a href="#home" className="text-gray-700 hover:text-primary">Home</a>
+              <a href="#about" className="text-gray-700 hover:text-primary">About</a>
+              <a href="#services" className="text-gray-700 hover:text-primary">Services</a>
+              <Button className="bg-primary hover:bg-primary/90 w-full">
+                Contact Us
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+==================================================
+Contents of src/components/Services.tsx:
+==================================================
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Heart, Target, User, Briefcase, Palette, Car, Phone, Home, Calendar, BarChart3, LineChart, Layout, MessageCircle } from "lucide-react";
+
+const services = [
+  {
+    title: "Love and Marriage Compatibility",
+    description: "Discover your romantic compatibility through numbers",
+    icon: Heart,
+  },
+  {
+    title: "Life Goals",
+    description: "Align your path with your numerological destiny",
+    icon: Target,
+  },
+  {
+    title: "Know Your Personality",
+    description: "Uncover your true self through numerology",
+    icon: User,
+  },
+  {
+    title: "Job Opportunities",
+    description: "Find career paths aligned with your numbers",
+    icon: Briefcase,
+  },
+  {
+    title: "Lucky Colors",
+    description: "Discover colors that enhance your fortune",
+    icon: Palette,
+  },
+  {
+    title: "Lucky Car Number",
+    description: "Choose the perfect number for your vehicle",
+    icon: Car,
+  },
+  {
+    title: "Lucky Mobile Number",
+    description: "Select a phone number that brings prosperity",
+    icon: Phone,
+  },
+  {
+    title: "Lucky Flat/House Number",
+    description: "Find your ideal residential number",
+    icon: Home,
+  },
+  {
+    title: "Daily Forecast",
+    description: "Your daily numerological guidance",
+    icon: Calendar,
+  },
+  {
+    title: "Monthly Forecast",
+    description: "Monthly insights through numerology",
+    icon: BarChart3,
+  },
+  {
+    title: "Yearly Forecast",
+    description: "Annual predictions based on your numbers",
+    icon: LineChart,
+  },
+  {
+    title: "Logos and Website Designs",
+    description: "Numerology-aligned branding solutions",
+    icon: Layout,
+  },
+  {
+    title: "Personal Consultation",
+    description: "One-on-one numerological guidance",
+    icon: MessageCircle,
+  },
+];
+
+const Services = () => {
+  return (
+    <section id="services" className="py-20 bg-accent">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+          <p className="text-lg text-gray-600">
+            Discover how numerology can transform your life
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <service.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  {service.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

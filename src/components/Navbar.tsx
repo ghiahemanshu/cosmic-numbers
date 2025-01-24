@@ -6,12 +6,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 py-4">
+    <nav className="fixed w-full bg-gradient-main z-50 py-4">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img src="/lovable-uploads/123da26c-19a6-43db-9ada-ecbc63170eb7.png" alt="Soul Digits Logo" className="h-16" />
-            <span className="text-3xl font-bold text-primary">Soul Digits</span>
+            <span className="text-4xl font-bold text-primary">Soul Digits</span>
+            <span className="text-4xl font-bold text-pink-600">Soul Digits</span>
+            <span className="text-4xl font-bold text-red-600">Soul Digits</span>
+
           </div>
 
           {/* Desktop Navigation */}

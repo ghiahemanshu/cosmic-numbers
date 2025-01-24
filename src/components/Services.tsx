@@ -1,5 +1,25 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Target, User, Briefcase, Palette, Car, Phone, Home, Calendar, BarChart3, LineChart, Layout, MessageCircle } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Heart,
+  Target,
+  User,
+  Briefcase,
+  Palette,
+  Car,
+  Phone,
+  Home,
+  Calendar,
+  BarChart3,
+  LineChart,
+  Layout,
+  MessageCircle,
+} from "lucide-react";
 
 const services = [
   {
@@ -71,11 +91,11 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-accent">
+    <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">Our Services</h2>
+          <p className="text-lg text-gray-700">
             Discover how numerology can transform your life
           </p>
         </div>
@@ -87,11 +107,11 @@ const Services = () => {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <service.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">
+                <CardDescription className="text-base text-gray-700">
                   {service.description}
                 </CardDescription>
               </CardContent>
