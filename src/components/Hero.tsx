@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 bg-gradient-main">
       <div className="container mx-auto px-4">
@@ -18,7 +21,11 @@ const Hero = () => {
                 Explore Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="secondary" className="bg-secondary hover:bg-secondary/90 text-lg px-8 py-6">
+              <Button 
+                variant="secondary" 
+                className="bg-secondary hover:bg-secondary/90 text-lg px-8 py-6"
+                onClick={() => navigate('/chat')}
+              >
                 Get Started
               </Button>
             </div>
